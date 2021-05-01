@@ -10,7 +10,7 @@ composer require cweagans/composer-patches
       "patches": {
         "oxid-esales/oxideshop-composer-plugin": {
           "Don't ask, simple install all new":
-          "https://git.d3data.de/D3Public/oxid_patches/raw/branch/main/OxidAskYes.patch"
+          "https://git.d3data.de/D3Public/oxid_patches/raw/branch/composer-install/OxidAskYes.patch"
         }
       },
       "enable-patching": true
