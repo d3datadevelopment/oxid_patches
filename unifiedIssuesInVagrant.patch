@@ -1,0 +1,30 @@
+From d908c1e550c6262271ed6ac770e3e89a2419ffdf Mon Sep 17 00:00:00 2001
+From: Daniel Seifert <git@daniel-seifert.com>
+Date: Fri, 19 Aug 2022 22:29:11 +0200
+Subject: [PATCH 1/1] adjust generated directory outside of shared vagrant
+ folders because of permission issues
+
+---
+ library/TestConfig.php | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/library/TestConfig.php b/library/TestConfig.php
+index 48f5915..3553732 100644
+--- a/library/TestConfig.php
++++ b/library/TestConfig.php
+@@ -55,7 +55,11 @@ class TestConfig
+     {
+         $facts = new \OxidEsales\Facts\Facts();
+         $unifiedNameSpaceClassMapProvider = new \OxidEsales\UnifiedNameSpaceGenerator\UnifiedNameSpaceClassMapProvider($facts);
+-        $generator = new \OxidEsales\UnifiedNameSpaceGenerator\Generator($facts, $unifiedNameSpaceClassMapProvider);
++        $generator = new \OxidEsales\UnifiedNameSpaceGenerator\Generator(
++            $facts, 
++            $unifiedNameSpaceClassMapProvider,
++            '/home/vagrant/unifiedNameSpaceGenerator/'
++        );
+         $generator->cleanupOutputDirectory();
+         $generator->generate();
+     }
+-- 
+2.25.1
+

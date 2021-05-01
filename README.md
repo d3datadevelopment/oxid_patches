@@ -1,6 +1,5 @@
 # oxid_patches
-How many times you have thought about OXID and "Do you want to ..." -> YES 
-Don't do it again!
+permission error while deleting the generated unified namespace helper in vagrant shared folder when running unit tests
 
 # first add this to your main composer file
 composer require cweagans/composer-patches
@@ -8,9 +7,9 @@ composer require cweagans/composer-patches
 # add this to your main composer file
     "extra": {
       "patches": {
-        "oxid-esales/oxideshop-composer-plugin": {
-          "Don't ask, simple install all new":
-          "https://git.d3data.de/D3Public/oxid_patches/raw/branch/main/OxidAskYes.patch"
+        "oxid-esales/testing-library": {
+          "unifiled issues in vagrant":
+          "https://git.d3data.de/D3Public/oxid_patches/raw/branch/unifiedIssuesInVagrant/unifiedIssuesInVagrant.patch"
         }
       },
       "enable-patching": true
