@@ -1,0 +1,31 @@
+From 84a2fb615a64f4a52ef44adbb19eda48e9e1b1f3 Mon Sep 17 00:00:00 2001
+From: Daniel Seifert <ds@shopmodule.com>
+Date: Thu, 7 Jul 2022 14:16:51 +0200
+Subject: [PATCH 1/1] create symlinks in source folder instead of copying
+ module files
+
+---
+ .../Module/Install/Service/ModuleFilesInstaller.php         | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/source/Internal/Framework/Module/Install/Service/ModuleFilesInstaller.php b/source/Internal/Framework/Module/Install/Service/ModuleFilesInstaller.php
+index dff8629e6..d6a96be59 100644
+--- a/source/Internal/Framework/Module/Install/Service/ModuleFilesInstaller.php
++++ b/source/Internal/Framework/Module/Install/Service/ModuleFilesInstaller.php
+@@ -52,11 +52,9 @@ class ModuleFilesInstaller implements ModuleFilesInstallerInterface
+     {
+         $finder = $this->getFinder($package->getPackageSourcePath(), $package->getBlackListFilters());
+ 
+-        $this->fileSystemService->mirror(
++        $this->fileSystemService->symlink(
+             $package->getPackageSourcePath(),
+-            $this->getTargetPath($package),
+-            $finder,
+-            ['override' => true]
++            $this->getTargetPath($package)
+         );
+     }
+ 
+-- 
+2.26.1.windows.1
+

@@ -9,8 +9,8 @@ composer require cweagans/composer-patches
     "extra": {
       "patches": {
         "oxid-esales/oxideshop-composer-plugin": {
-          "Don't ask, simple install all new":
-          "https://git.d3data.de/D3Public/oxid_patches/raw/branch/composer-install/OxidAskYes.patch"
+          "don't copy module files to source, symlink it only":
+          "https://git.d3data.de/D3Public/oxid_patches/raw/branch/symlinksInSource/symlinkmodules.patch"
         }
       },
       "enable-patching": true
