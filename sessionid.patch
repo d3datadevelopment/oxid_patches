@@ -1,0 +1,26 @@
+From 3076f4f5dcfde2118afe2674af94c27dbbe03152 Mon Sep 17 00:00:00 2001
+From: Daniel Seifert <ds@shopmodule.com>
+Date: Mon, 27 Feb 2023 12:14:11 +0100
+Subject: [PATCH 1/1] force unset existing session when new session is
+ initialised
+
+---
+ source/Core/Session.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/source/Core/Session.php b/source/Core/Session.php
+index 29ec34762..91cad53db 100644
+--- a/source/Core/Session.php
++++ b/source/Core/Session.php
+@@ -370,7 +370,7 @@ class Session extends \OxidEsales\Eshop\Core\Base
+             }
+         }
+ 
+-        $sessionId = $this->_getNewSessionId(false);
++        $sessionId = $this->_getNewSessionId();
+         $this->setId($sessionId);
+         $this->setSessionCookie($sessionId);
+ 
+-- 
+2.26.1.windows.1
+
